@@ -19,5 +19,6 @@ public interface SysParameterDaoMapper {
     
     List<SysParameter> findByPanme(String pname);
 
-    boolean insertPa(String pdescribe,String pkey,String pname,String ptype,String pvalue);
+    //暂未实现
+    boolean insertPa(String pdescribe,String pkey,String pname,String ptype,String pvalue); 
 }
