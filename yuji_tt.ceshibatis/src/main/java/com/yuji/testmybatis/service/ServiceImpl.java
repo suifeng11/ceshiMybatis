@@ -57,6 +57,12 @@ public class ServiceImpl implements IService{
 		// TODO Auto-generated method stub
 		return smapper.findByPanme(paname);
 	}
+
+	@Override
+	public List<SysParameter> findByDynamic(SysParameter pa) {
+		// TODO Auto-generated method stub
+		return smapper.findByDynamic(pa);
+	}
     
     
 }

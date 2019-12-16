@@ -18,6 +18,8 @@ public interface SysParameterDaoMapper {
     SysParameter checkPaIsExist(SysParameter pa);
     
     List<SysParameter> findByPanme(String pname);
+    
+    List<SysParameter> findByDynamic(SysParameter pa);
 
     //暂未实现
     boolean insertPa(String pdescribe,String pkey,String pname,String ptype,String pvalue); 

@@ -17,4 +17,6 @@ public interface IService {
     public SysParameter checkPaIsExist(SysParameter pa);
     
     public List<SysParameter> findByPanme(String paname);
+    
+    public List<SysParameter> findByDynamic(SysParameter pa);
 }

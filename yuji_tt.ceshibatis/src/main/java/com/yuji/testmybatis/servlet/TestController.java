@@ -41,7 +41,7 @@ public class TestController {
             System.out.println(ree.get(i).getPdescribe()+ree.get(i).getPaType().getTypeName());
         }
         System.out.println("----------------------------------------------------------------------------------------------------------");
-        SysParameter r = ser.checkPaIsExist(ser.findOneById(400));
+        SysParameter r = ser.checkPaIsExist(ree.get(1));
         if(r==null)
         {
         	System.out.println("checkPaIsExist==null");
@@ -57,8 +57,12 @@ public class TestController {
             System.out.println(ree1.get(i).getPname()+"  "+ree1.get(i).getPdescribe()+ree1.get(i).getPaType().getTypeName());
         }
         System.out.println("----------------------------------------------------------------------------------------------------------");
-        //return false;
-
+        List<SysParameter> dr = ser.findByDynamic(ree1.get(1));
+        for(int i=0;i<dr.size();i++)
+        {
+            System.out.println(dr.get(i).getPname());
+        }
+        System.out.println("----------------------------------------------------------------------------------------------------------");
         redisUtil.set("haha", "hahahhahahahahahahah");
        return  redisUtil.get("haha").toString();
 

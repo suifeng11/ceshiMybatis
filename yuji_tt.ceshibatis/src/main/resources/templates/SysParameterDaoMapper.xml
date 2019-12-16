@@ -53,7 +53,7 @@
     <select id="checkPaIsExist"  resultType="com.yuji.testmybatis.beans.SysParameter">
         select * 
         from ez_sys_parameter 
-        where id=#{id} and pname=#{pname} 
+        where id=#{id} and pname=#{pname} and ptype=#{paType.id}
     </select>
     
     <!-- ############################模糊查询的例子 ############################-->
@@ -63,10 +63,17 @@
          where ez_sys_parameter.pname like "%"#{csmc}"%"
     </select>
     
-    
-    
-    
-    
+    <!-- ############################动态查询的例子 ############################-->
+    <select id="findByDynamic" parameterType="com.yuji.testmybatis.beans.SysParameter"  resultType="com.yuji.testmybatis.beans.SysParameter">
+	select ez_sys_parameter.*, parameter_type.id tid,parameter_type.type_name,parameter_type.type_describe
+ 	from ez_sys_parameter inner join parameter_type on ez_sys_parameter.ptype=parameter_type.id
+ 	<where> 
+ 				<if test="pname != null">and pname=#{pname}</if>
+ 				<if test="pdescribe != null">and pdescribe=#{pdescribe}</if>
+ 				<if test="paType != null">and parameter_type.id=#{paType.id}</if>
+ 	</where>
+	</select>
+     
     
 
 </mapper>
