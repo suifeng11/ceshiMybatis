@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuji.testmybatis.dao.SysParameterDaoMapper">
+
+<!-- ############################基础结果映射############################-->
+    <resultMap id="BaseResultMap" type="com.yuji.testmybatis.beans.SysParameter">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="pkey" jdbcType="VARCHAR" property="pkey" />
+        <result column="pname" jdbcType="VARCHAR" property="pname" />
+        <result column="pvalue" jdbcType="VARCHAR" property="pvalue" />
+    </resultMap>
+
+
+
+<!-- ############################无参数查询例子############################-->
+    <select id="findPaById" parameterType="java.lang.Integer" resultType="com.yuji.testmybatis.beans.SysParameter">
+        select * from ez_sys_parameter where id = #{paid}
+    </select>
+<!-- v############################无参数查询列表结果例子############################-->
+    <!--  <select id="findAll"  resultMap="BaseResultMap"> -->
+    <select id="findAll"  resultType="com.yuji.testmybatis.beans.SysParameter">
+        select * from ez_sys_parameter
+    </select>
+<!-- ############################带参数查询列表结果例子############################-->
+	<!--  <select id="findAll2"  resultMap="BaseResultMap"> -->
+    <select id="findAll2"  resultType="com.yuji.testmybatis.beans.SysParameter">
+        select * from ez_sys_parameter
+    </select>
+
+	
+<!-- ############################ResultMapWithType 一对一例子############################-->
+    <resultMap id="ResultMapWithType" type="com.yuji.testmybatis.beans.SysParameter">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="pkey" jdbcType="VARCHAR" property="pkey" />
+        <result column="pname" jdbcType="VARCHAR" property="pname" />
+        <result column="pvalue" jdbcType="VARCHAR" property="pvalue" />
+        <result column="pdescribe" jdbcType="VARCHAR" property="pdescribe" />
+        <association property="paType" javaType="com.yuji.testmybatis.beans.SysParameterType">
+            <id property="id" column="tid" />
+            <result property="typeName" column="type_name"/>
+            <result property="typeDescribe" column="type_describe"/>
+        </association>
+    </resultMap>
+
+    <select id="findAllWithType"  resultMap="ResultMapWithType">
+         select ez_sys_parameter.*, parameter_type.id tid,parameter_type.type_name,parameter_type.type_describe
+         from ez_sys_parameter inner join parameter_type on ez_sys_parameter.ptype=parameter_type.id
+         where parameter_type.id=1
+    </select>
+    
+    <!-- ############################参数为对象的例子 ############################-->
+    <!-- #{属性名}-->
+    <select id="checkPaIsExist"  resultType="com.yuji.testmybatis.beans.SysParameter">
+        select * 
+        from ez_sys_parameter 
+        where id=#{id} and pname=#{pname} 
+    </select>
+    
+    <!-- ############################模糊查询的例子 ############################-->
+     <select id="findByPanme"  resultMap="ResultMapWithType">
+         select ez_sys_parameter.*, parameter_type.id tid,parameter_type.type_name,parameter_type.type_describe
+         from ez_sys_parameter inner join parameter_type on ez_sys_parameter.ptype=parameter_type.id
+         where ez_sys_parameter.pname like "%"#{csmc}"%"
+    </select>
+    
+    
+    
+    
+    
+    
+
+</mapper>

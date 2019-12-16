@@ -1,0 +1,44 @@
+package com.yuji.testmybatis.servlet;
+
+import com.yuji.testmybatis.service.IService;
+import com.yuji.testmybatis.utility.RedisUtil;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+@Controller
+public class TestController {
+
+    @Resource(name = "ServiceImpl")
+    private IService ser;
+
+    @Resource(name = "RedisUtil")
+   private RedisUtil redisUtil;
+
+    @ResponseBody
+    @RequestMapping(value = "/savetest")
+    public String testsave(HttpServletRequest request) throws Exception {
+
+      // return  ser.save1(1111,"des","key","pname","ptype","pvaluee");
+
+    /*    List<SysParameter> re = ser.findAllpa();
+        for(int i=0;i<re.size();i++)
+        {
+            System.out.println(re.get(i).getPdescribe()+re.get(i).getPaType().getTypeName()+re.get(i).getPaType().getId());
+        }
+
+        return false;*/
+
+        redisUtil.set("haha", "hahahhahahahahahahah");
+       return  redisUtil.get("haha").toString();
+
+
+
+
+
+
+    }
+}
