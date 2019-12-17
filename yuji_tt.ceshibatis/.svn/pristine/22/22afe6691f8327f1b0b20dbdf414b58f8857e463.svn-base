@@ -1,0 +1,6 @@
+package com.yuji.testmybatis.service;
+
+public interface IService {
+
+    public boolean save1(int id,  String pdescribe,String pkey,String pname,String ptype,String pvalue);
+}

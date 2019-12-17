@@ -1,0 +1,17 @@
+package com.yuji.testmybatis.beans;
+
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
+
+@Mapper
+public interface SysParameterMapper {
+
+    @Select("select * from ez_sys_parameter where id = #{id}")
+    SysParameter findPaById(int userId);
+
+    @Insert("insert into ez_sys_parameter (pdescribe,pkey,pname,ptype,pvalue) values (#{pdescribe},#{pkey},#{pname},#{ptype},#{pvalue})")
+    boolean insertPa(String pdescribe,String pkey,String pname,String ptype,String pvalue);
+
+}
