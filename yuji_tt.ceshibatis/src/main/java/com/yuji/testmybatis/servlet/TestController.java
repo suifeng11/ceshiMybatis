@@ -63,8 +63,12 @@ public class TestController {
             System.out.println(dr.get(i).getPname());
         }
         System.out.println("----------------------------------------------------------------------------------------------------------");
-        redisUtil.set("haha", "hahahhahahahahahahah");
-       return  redisUtil.get("haha").toString();
+        
+        
+       // redisUtil.set("haha", "hahahhahahahahahahah");
+       //return  redisUtil.get("haha").toString();
+        
+        return "success";
 
 
 

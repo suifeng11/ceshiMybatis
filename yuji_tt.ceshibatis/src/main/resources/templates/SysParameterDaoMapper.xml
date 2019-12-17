@@ -68,7 +68,7 @@
 	select ez_sys_parameter.*, parameter_type.id tid,parameter_type.type_name,parameter_type.type_describe
  	from ez_sys_parameter inner join parameter_type on ez_sys_parameter.ptype=parameter_type.id
  	<where> 
- 				<if test="pname != null">and pname=#{pname}</if>
+ 				<if test="pname != null">and pname like "%"#{pname}"%"</if>
  				<if test="pdescribe != null">and pdescribe=#{pdescribe}</if>
  				<if test="paType != null">and parameter_type.id=#{paType.id}</if>
  	</where>
