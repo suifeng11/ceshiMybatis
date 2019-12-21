@@ -10,5 +10,11 @@ import java.util.List;
 public interface SysParameterTypeDaoMapper {
  
     List<SysParameter> findByType(SysParameterType type);
+    
+    public SysParameterType findTypeById(int id);
+    
+    public int  addOneNewType(SysParameterType t);
+    
+    
  
 }

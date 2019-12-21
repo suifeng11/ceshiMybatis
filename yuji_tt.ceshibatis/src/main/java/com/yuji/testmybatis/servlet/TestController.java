@@ -1,6 +1,7 @@
 package com.yuji.testmybatis.servlet;
 
 import com.yuji.testmybatis.beans.SysParameter;
+import com.yuji.testmybatis.beans.SysParameterType;
 import com.yuji.testmybatis.service.IService;
 import com.yuji.testmybatis.utility.RedisUtil;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -19,6 +22,27 @@ public class TestController {
 
     @Resource(name = "RedisUtil")
    private RedisUtil redisUtil;
+    
+    @ResponseBody
+    @RequestMapping(value = "/savetest1")
+    public String testsave1(HttpServletRequest request) throws Exception {
+    	SysParameterType t = new SysParameterType();
+    	t.setTypeName("tname"+new Date().getTime());
+    	t.setTypeDescribe("tdes"+new Date().getTime());
+    	System.out.println("new id:"+ser.addOneNewType(t));
+    	
+    	System.out.println("---------------------------------------------");
+    	SysParameterType type = new SysParameterType();
+    	type.setId(1);
+    	List<SysParameter> re = ser.findByType(type);
+    	System.out.println("0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000");
+        for(int i=0;i<re.size();i++)
+        {
+        	//System.out.println(re.get(i).getPdescribe());
+            System.out.println(re.get(i).getPdescribe()+"    "+re.get(i).getPaType().getTypeName());
+        }
+        return "success";
+    }
 
     @ResponseBody
     @RequestMapping(value = "/savetest")
@@ -70,10 +94,6 @@ public class TestController {
         
         return "success";
 
-
-
-
-
-
+ 
     }
 }

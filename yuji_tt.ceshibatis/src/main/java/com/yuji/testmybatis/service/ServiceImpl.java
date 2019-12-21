@@ -1,17 +1,23 @@
 package com.yuji.testmybatis.service;
 
-import com.yuji.testmybatis.beans.SysParameter;
-import com.yuji.testmybatis.dao.SysParameterDaoMapper;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.yuji.testmybatis.beans.SysParameter;
+import com.yuji.testmybatis.beans.SysParameterType;
+import com.yuji.testmybatis.dao.SysParameterDaoMapper;
+import com.yuji.testmybatis.dao.SysParameterTypeDaoMapper;
 
 @Service("ServiceImpl")
 public class ServiceImpl implements IService{
 
     @Autowired
     private SysParameterDaoMapper smapper;
+    
+    @Autowired
+    private SysParameterTypeDaoMapper tmapper;
 
     /*@Override
     public boolean save1(int id,  String pdescribe,String pkey,String pname,String ptype,String pvalue)
@@ -62,6 +68,21 @@ public class ServiceImpl implements IService{
 	public List<SysParameter> findByDynamic(SysParameter pa) {
 		// TODO Auto-generated method stub
 		return smapper.findByDynamic(pa);
+	}
+
+	@Override
+	public List<SysParameter> findByType(SysParameterType type) {
+		// TODO Auto-generated method stub
+		return tmapper.findByType(type);
+	}
+
+	@Override
+	public int addOneNewType(SysParameterType type) {
+		// TODO Auto-generated method stub
+		 tmapper.addOneNewType(type);
+		 /*double i = 1/0;
+		 tmapper.addOneNewType(type);*/
+		 return type.getId();
 	}
     
     

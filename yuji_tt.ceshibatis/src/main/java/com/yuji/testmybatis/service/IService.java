@@ -1,6 +1,7 @@
 package com.yuji.testmybatis.service;
 
 import com.yuji.testmybatis.beans.SysParameter;
+import com.yuji.testmybatis.beans.SysParameterType;
 
 import java.util.List;
 
@@ -19,4 +20,8 @@ public interface IService {
     public List<SysParameter> findByPanme(String paname);
     
     public List<SysParameter> findByDynamic(SysParameter pa);
+    
+    public List<SysParameter> findByType(SysParameterType type);
+    
+    public int addOneNewType(SysParameterType type);
 }
