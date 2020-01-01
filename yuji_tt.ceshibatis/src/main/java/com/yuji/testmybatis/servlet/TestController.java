@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
+@RequestMapping("/test")
 public class TestController {
 
     @Resource(name = "ServiceImpl")
@@ -40,6 +41,8 @@ public class TestController {
         {
         	//System.out.println(re.get(i).getPdescribe());
             System.out.println(re.get(i).getPdescribe()+"    "+re.get(i).getPaType().getTypeName());
+            
+            System.out.println(re.get(i).getPdescribe()+"    "+re.get(i).getPaType().getTypeDescribe());
         }
         return "success";
     }
@@ -95,5 +98,16 @@ public class TestController {
         return "success";
 
  
+    }
+    
+    @ResponseBody
+    @RequestMapping(value = "/savetest3")
+    public void savetest3(HttpServletRequest request) throws Exception {
+    	
+    	List<SysParameter> re = ser.findAllpa();
+        for(int i=0;i<re.size();i++)
+        {
+            System.out.println(re.get(i).getPdescribe());
+        }
     }
 }

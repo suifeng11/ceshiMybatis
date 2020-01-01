@@ -21,8 +21,8 @@
         select * from ez_sys_parameter where id = #{paid}
     </select>
 <!-- v############################无参数查询列表结果例子############################-->
-    <!--  <select id="findAll"  resultMap="BaseResultMap"> -->
-    <select id="findAll"  resultType="com.yuji.testmybatis.beans.SysParameter">
+    <select id="findAll"  resultMap="BaseResultMap"> 
+    <!-- <select id="findAll"  resultType="com.yuji.testmybatis.beans.SysParameter">-->
         select * from ez_sys_parameter
     </select>
 <!-- ############################带参数查询列表结果例子############################-->
