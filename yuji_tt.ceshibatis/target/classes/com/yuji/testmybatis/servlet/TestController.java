@@ -107,20 +107,15 @@ public class TestController {
     public void savetest3(HttpServletRequest request) throws Exception {
     	
 		
-		/*
-		 * List<SysParameter> re = ser.findAllpa(); for(int i=0;i<re.size();i++) {
-		 * System.out.println(re.get(i).getPdescribe()); }
-		 */
+		  List<SysParameter> re = ser.findAllpa(); 
+		  for(int i=0;i<re.size();i++) {
+		  System.out.println(re.get(i).getPdescribe()); }
 		 
 		 
     	// -------------------------------------------------------------------------------------
-		
-		  List<SysParameterType> re = ser.findAllTypes(); 
-		  for(int i=0;i<re.size();i++)
-		  { 
-		  		Gson g = new Gson(); 
-		  		System.out.println(g.toJson(re.get(i))); 
-		  }
-		 
+		/*
+		 * List<SysParameterType> re = ser.findAllTypes(); for(int i=0;i<re.size();i++)
+		 * { Gson g = new Gson(); System.out.println(g.toJson(re.get(i))); }
+		 */
     }
 }
