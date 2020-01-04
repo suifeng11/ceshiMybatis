@@ -28,8 +28,7 @@
         </select>
  
     
-    <insert id="addOneNewType" useGeneratedKeys="true"
-    keyProperty="id">
+    <insert id="addOneNewType" useGeneratedKeys="true" keyProperty="id">
 	  insert into parameter_type (type_name,type_describe)
 	  values (#{typeName},#{typeDescribe})
 	</insert>
