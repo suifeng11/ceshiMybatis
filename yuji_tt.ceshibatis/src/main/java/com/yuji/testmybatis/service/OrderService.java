@@ -17,4 +17,10 @@ public class OrderService implements IOrderService {
 		 return orderMapper.findOrderById(oid);
 	 }
 
+	@Override
+	public int saveOneOrder(Order order) {
+		// TODO Auto-generated method stub
+		return orderMapper.saveOneOrder(order);
+	}
+
 }

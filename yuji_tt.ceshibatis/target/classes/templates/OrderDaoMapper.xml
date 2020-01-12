@@ -7,13 +7,15 @@
  
 
 <!-- resultType 可以省略mybatis.type-aliases-package配置的限定名，就算后面还有，也可以省去 -->
-<select id="findOrderById"  resultType="order" flushCache="true">
+	<select id="findOrderById"  resultType="order" flushCache="true">
         select * from orders  where id = #{oid}
     </select>
-    
-    <insert id="addOneNewType" useGeneratedKeys="true" keyProperty="id" flushCache="true" statementType="PREPARED">
-	  insert into orders (order_name,price,create_time,customer_id)
-	  values (#{orderName},#{price},#{createTime},#{customer.id})
+ 
+ <!-- value值可以用对象名.属性名来获取 -->   
+    <insert id="saveOneOrder" useGeneratedKeys="true" keyProperty="id" 
+    		flushCache="true" statementType="PREPARED">
+	  insert into orders (ord_name,price,create_time,customer_id)
+	  values (#{ordName},#{price},#{createTime},#{customer.id})
 	</insert>
 
  

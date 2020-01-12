@@ -3,7 +3,7 @@ Implementation-Title: testmybatis
 Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: Administrator
 Implementation-Vendor-Id: com.yuji
-Build-Jdk: 1.8.0_211
+Build-Jdk: 1.8.0_201
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/yuji_tt.ceshibatis
 Created-By: Maven Integration for Eclipse
