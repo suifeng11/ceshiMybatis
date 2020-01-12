@@ -5,12 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.yuji.testmybatis.beans.SysParameter;
-import com.yuji.testmybatis.beans.SysParameterType;
-import com.yuji.testmybatis.dao.SysParameterDaoMapper;
-import com.yuji.testmybatis.dao.SysParameterTypeDaoMapper;
+import com.yuji.testmybatis.beans.sysPara.SysParameter;
+import com.yuji.testmybatis.beans.sysPara.SysParameterType;
+import com.yuji.testmybatis.dao.sysPara.SysParameterDaoMapper;
+import com.yuji.testmybatis.dao.sysPara.SysParameterTypeDaoMapper;
 
-@Service("ServiceImpl")
+//@Service("ServiceImpl")
 public class ServiceImpl implements IService{
 
     @Autowired

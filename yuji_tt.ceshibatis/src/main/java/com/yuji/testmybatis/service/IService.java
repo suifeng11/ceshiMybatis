@@ -1,9 +1,9 @@
 package com.yuji.testmybatis.service;
 
-import com.yuji.testmybatis.beans.SysParameter;
-import com.yuji.testmybatis.beans.SysParameterType;
-
 import java.util.List;
+
+import com.yuji.testmybatis.beans.sysPara.SysParameter;
+import com.yuji.testmybatis.beans.sysPara.SysParameterType;
 
 public interface IService {
 

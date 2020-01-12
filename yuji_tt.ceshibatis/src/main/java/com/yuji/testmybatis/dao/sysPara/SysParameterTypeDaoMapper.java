@@ -1,12 +1,12 @@
-package com.yuji.testmybatis.dao;
-
-import com.yuji.testmybatis.beans.SysParameter;
-import com.yuji.testmybatis.beans.SysParameterType;
+package com.yuji.testmybatis.dao.sysPara;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.yuji.testmybatis.beans.sysPara.SysParameter;
+import com.yuji.testmybatis.beans.sysPara.SysParameterType;
+
 import java.util.List;
-@Mapper
+ 
 public interface SysParameterTypeDaoMapper {
  
     List<SysParameter> findByType(SysParameterType type);

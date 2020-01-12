@@ -1,10 +1,11 @@
-package com.yuji.testmybatis.dao;
+package com.yuji.testmybatis.dao.sysPara;
 
-import com.yuji.testmybatis.beans.SysParameter;
 import org.apache.ibatis.annotations.Mapper;
 
+import com.yuji.testmybatis.beans.sysPara.SysParameter;
+
 import java.util.List;
-@Mapper
+ 
 public interface SysParameterDaoMapper {
 
     SysParameter findPaById(int paid);

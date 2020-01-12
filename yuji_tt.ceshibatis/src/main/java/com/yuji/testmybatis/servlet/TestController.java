@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
-import com.yuji.testmybatis.beans.SysParameter;
-import com.yuji.testmybatis.beans.SysParameterType;
+import com.yuji.testmybatis.beans.sysPara.SysParameter;
+import com.yuji.testmybatis.beans.sysPara.SysParameterType;
 import com.yuji.testmybatis.service.IService;
 import com.yuji.testmybatis.utility.RedisUtil;
 
-@Controller
-@RequestMapping("/test")
+//@Controller
+//@RequestMapping("/test")
 public class TestController {
 
-    @Resource(name = "ServiceImpl")
+   // @Resource(name = "ServiceImpl")
     private IService ser;
 
     @Resource(name = "RedisUtil")

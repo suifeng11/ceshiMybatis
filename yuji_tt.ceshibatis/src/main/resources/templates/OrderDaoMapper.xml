@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuji.testmybatis.dao.orders.OrderDaoMapper">
+
+ <!--表示此mapper开启二级缓存-->
+ <!--<cache/>-->
+ 
+
+<!-- resultType 可以省略mybatis.type-aliases-package配置的限定名，就算后面还有，也可以省去 -->
+<select id="findOrderById"  resultType="order" flushCache="true">
+        select * from orders  where id = #{oid}
+    </select>
+    
+    <insert id="addOneNewType" useGeneratedKeys="true" keyProperty="id" flushCache="true" statementType="PREPARED">
+	  insert into orders (order_name,price,create_time,customer_id)
+	  values (#{orderName},#{price},#{createTime},#{customer.id})
+	</insert>
+
+ 
+ 
+</mapper>

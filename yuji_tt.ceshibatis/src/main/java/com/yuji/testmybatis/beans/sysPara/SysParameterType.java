@@ -1,4 +1,4 @@
-package com.yuji.testmybatis.beans;
+package com.yuji.testmybatis.beans.sysPara;
 
 import java.util.List;
 

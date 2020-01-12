@@ -1,4 +1,4 @@
-package com.yuji.testmybatis.beans;
+package com.yuji.testmybatis.beans.sysPara;
 
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
