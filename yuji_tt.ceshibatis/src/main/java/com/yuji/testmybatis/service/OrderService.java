@@ -1,5 +1,7 @@
 package com.yuji.testmybatis.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,12 @@ public class OrderService implements IOrderService {
 	public int saveOneOrder(Order order) {
 		// TODO Auto-generated method stub
 		return orderMapper.saveOneOrder(order);
+	}
+
+	@Override
+	public List<Order> findOrdersByObject(Order order) {
+		// TODO Auto-generated method stub
+		return orderMapper.findOrdersByObject(order);
 	}
 
 }

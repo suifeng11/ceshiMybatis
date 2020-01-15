@@ -17,6 +17,10 @@
 	  insert into orders (ord_name,price,create_time,customer_id)
 	  values (#{ordName},#{price},#{createTime},#{customer.id})
 	</insert>
+	
+	<select id="findOrdersByObject"  resultType="order" flushCache="true">
+        select * from orders  where ord_name like "%"#{ordName}"%" and price=#{price}
+    </select>
 
  
  

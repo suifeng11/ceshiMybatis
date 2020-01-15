@@ -2,6 +2,8 @@ package com.yuji.testmybatis.servlet;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Random;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +34,6 @@ public class OrderController {
     }
 	
 	// http://localhost:8080/order/saveOneOrder?ordName=ordName&price=100.21&customerId=1
-	
 	@ResponseBody
     @RequestMapping(value = "/saveOneOrder")
     public Order saveOneOrder(HttpServletRequest request) throws Exception {
@@ -42,8 +43,8 @@ public class OrderController {
 		String customerId = request.getParameter("customerId");
 		
 		Order order = new Order();
-		order.setOrdName(ordName);
-		order.setPrice(Double.parseDouble(strPrice));
+		order.setOrdName(ordName+new Random().nextInt(1000));
+		order.setPrice(Double.parseDouble(strPrice)+new Random().nextInt(10));
 		order.setCreateTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 		Customer cus = new Customer();
 		cus.setId(Integer.parseInt(customerId));
@@ -53,6 +54,25 @@ public class OrderController {
 		order.setId(id);
 		
 		return order;
+		
+    }
+	
+	// http://localhost:8080/order/findOrdersByObject?ordName=ordName&price=100.22
+	@ResponseBody
+    @RequestMapping(value = "/findOrdersByObject")
+    public List<Order> findOrdersByObject(HttpServletRequest request) throws Exception {
+    	 
+		String ordName = request.getParameter("ordName");
+		String strPrice = request.getParameter("price");
+		 
+		Order order = new Order();
+		order.setOrdName(ordName);
+		order.setPrice(Double.parseDouble(strPrice));
+		 
+		
+	    List<Order> orders  =  orderService.findOrdersByObject(order);;
+		 
+		return orders;
 		
     }
 
