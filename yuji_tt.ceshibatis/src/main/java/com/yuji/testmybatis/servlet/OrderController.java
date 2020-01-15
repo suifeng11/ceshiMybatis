@@ -15,7 +15,7 @@ import com.yuji.testmybatis.beans.orders.Order;
 import com.yuji.testmybatis.service.IOrderService;
 
 @Controller
-@RequestMapping("/order")
+@RequestMapping("/order") 
 public class OrderController {
 	
 	@Resource(name = "OrderService")
@@ -49,7 +49,7 @@ public class OrderController {
 		cus.setId(Integer.parseInt(customerId));
 		order.setCustomer(cus);
 		
-		int id =  orderService.saveOneOrder(order);
+		int id =  orderService.saveOneOrder(order);;
 		order.setId(id);
 		
 		return order;

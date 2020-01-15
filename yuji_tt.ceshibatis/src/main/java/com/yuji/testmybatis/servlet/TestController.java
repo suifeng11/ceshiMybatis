@@ -33,7 +33,10 @@ public class TestController {
     	t.setTypeName("tname"+new Date().getTime());
     	t.setTypeDescribe("tdes"+new Date().getTime());
     	System.out.println("new id:"+ser.addOneNewType(t));
-    	
+    	   
+    	System.out.println("---------------------------------------------");
+    	System.out.println("---------------------------------------------");
+    	System.out.println("---------------------------------------------");
     	System.out.println("---------------------------------------------");
     	SysParameterType type = new SysParameterType();
     	type.setId(1);

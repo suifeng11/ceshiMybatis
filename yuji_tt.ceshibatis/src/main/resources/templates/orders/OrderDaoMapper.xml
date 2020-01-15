@@ -5,19 +5,19 @@
  <!--表示此mapper开启二级缓存-->
  <!--<cache/>-->
  
- <!-- 包内的类自动加上别名，规则：首字母小写 -->
-<!--  <typeAliases> -->
-<!--   	<package name="com.yuji.testmybatis.dao.orders"/> -->
-<!-- </typeAliases> -->
 
-<select id="findOrderById"  resultType="orders.order" flushCache="true">
+<!-- resultType 可以省略mybatis.type-aliases-package配置的限定名，就算后面还有，也可以省去 -->
+	<select id="findOrderById"  resultType="order" flushCache="true">
         select * from orders  where id = #{oid}
     </select>
+ 
+ <!-- value值可以用对象名.属性名来获取 -->   
+    <insert id="saveOneOrder" useGeneratedKeys="true" keyProperty="id" 
+    		flushCache="true" statementType="PREPARED">
+	  insert into orders (ord_name,price,create_time,customer_id)
+	  values (#{ordName},#{price},#{createTime},#{customer.id})
+	</insert>
 
  
  
- 
-
- 
-
 </mapper>
